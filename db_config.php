@@ -1,7 +1,7 @@
 <?php
 $host = "sql12.freesqldatabase.com";
 $user = "sql12789865";
-$pass = ""; // XAMPP default has no password
+$pass = "DBFvd7HTtm"; // XAMPP default has no password
 $db = "sql12789865";
 
 $conn = new mysqli($host, $user, $pass, $db);

@@ -1,85 +1,91 @@
+/* General reset */
 body {
-  font-family: Arial, sans-serif;
-  background: #f0f4f8;
-  margin: 0;
-  padding: 20px;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f3f4f6;
+    color: #333;
 }
 
+/* Container */
 .container {
-  width: 90%;
-  max-width: 800px;
-  margin: auto;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
-.form-box {
-  background: white;
-  padding: 20px;
-  margin: auto;
-  max-width: 400px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+/* Headings */
+h1, h2, h3 {
+    color: #0d6efd;
+    margin-bottom: 10px;
 }
 
-input, textarea, button {
-  display: block;
-  width: 100%;
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+/* Forms */
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 16px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
 }
 
-button {
-  background-color: #3498db;
-  color: white;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
+/* Buttons */
+button, .btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #2980b9;
+/* Submit / Add button */
+.btn-submit {
+    background-color: #0d6efd;
+    color: white;
 }
 
-.btn {
-  display: inline-block;
-  background-color: #27ae60;
-  color: white;
-  padding: 10px 15px;
-  margin: 5px;
-  border-radius: 5px;
-  text-decoration: none;
+.btn-submit:hover {
+    background-color: #084298;
 }
 
-.btn:hover {
-  background-color: #1e8449;
+/* Delete button */
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    margin-left: 10px;
 }
 
+.btn-delete:hover {
+    background-color: #a71d2a;
+}
+
+/* Cards / Posts */
 .card {
-  background: white;
-  padding: 15px;
-  margin: 15px 0;
-  border-radius: 8px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
-}
-.comments {
-  background: #f9f9f9;
-  padding: 10px;
-  margin-top: 10px;
-  border-left: 3px solid #3498db;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 16px 0;
+    background: #fafafa;
+    position: relative;
 }
 
-.comments p {
-  margin: 8px 0;
-  font-size: 14px;
-}
-button {
-  padding: 6px 12px;
-  margin-top: 10px;
-  cursor: pointer;
-  border-radius: 4px;
+.card-header {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
 }
 
-button:hover {
-  opacity: 0.9;
+.card-body {
+    margin-top: 10px;
+    color: #555;
+}
+
+/* Delete button position in card */
+.card .btn-delete {
+    position: absolute;
+    top: 16px;
+    right: 16px;
 }

@@ -52,15 +52,23 @@ button, .btn {
 }
 
 /* Delete button */
-.btn-delete {
-    background-color: #dc3545;
+/* Style for Delete Button */
+.delete-btn {
+    background-color: #e74c3c;
     color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
     margin-left: 10px;
+    transition: background-color 0.3s;
 }
 
-.btn-delete:hover {
-    background-color: #a71d2a;
+.delete-btn:hover {
+    background-color: #c0392b;
 }
+
 
 /* Cards / Posts */
 .card {

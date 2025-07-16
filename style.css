@@ -1,99 +1,136 @@
-/* General reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f3f4f6;
-    color: #333;
+  font-family: Arial, sans-serif;
+  background: #f0f2f5;
+  padding: 10px;
 }
 
-/* Container */
 .container {
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  max-width: 100%;
+  margin: auto;
+  padding: 10px;
 }
 
-/* Headings */
-h1, h2, h3 {
-    color: #0d6efd;
-    margin-bottom: 10px;
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-/* Forms */
-input, textarea, select {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0 16px 0;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-}
-
-/* Buttons */
-button, .btn {
-    padding: 10px 18px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-/* Submit / Add button */
-.btn-submit {
-    background-color: #0d6efd;
-    color: white;
-}
-
-.btn-submit:hover {
-    background-color: #084298;
-}
-
-/* Delete button */
-/* Style for Delete Button */
-.delete-btn {
-    background-color: #e74c3c;
-    color: white;
-    padding: 6px 12px;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 14px;
-    margin-left: 10px;
-    transition: background-color 0.3s;
-}
-
-.delete-btn:hover {
-    background-color: #c0392b;
-}
-
-
-/* Cards / Posts */
 .card {
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 16px;
-    margin: 16px 0;
-    background: #fafafa;
-    position: relative;
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.card-header {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #333;
+.card h3 {
+  font-size: 18px;
+  color: #333;
 }
 
-.card-body {
-    margin-top: 10px;
-    color: #555;
+.card p {
+  font-size: 15px;
+  margin-top: 8px;
+  color: #444;
 }
 
-/* Delete button position in card */
-.card .btn-delete {
-    position: absolute;
-    top: 16px;
-    right: 16px;
+.card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+textarea {
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: vertical;
+  font-size: 14px;
+}
+
+button {
+  background: #3498db;
+  color: white;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  margin-top: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.comments {
+  margin-top: 15px;
+  padding: 10px;
+  background: #f9f9f9;
+  border-left: 4px solid #3498db;
+  border-radius: 6px;
+}
+
+.comments p {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+a {
+  color: #3498db;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Mobile Responsive Media Query ---------- */
+@media (max-width: 600px) {
+  h2 {
+    font-size: 20px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+  }
+
+  .card p, .comments p {
+    font-size: 14px;
+  }
+
+  button, .delete-btn {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .delete-btn {
+    margin-top: 8px;
+  }
+
+  textarea {
+    font-size: 13px;
+  }
 }

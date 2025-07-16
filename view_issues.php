@@ -1,6 +1,4 @@
 <?php
-echo "Logged in as user ID: " . $_SESSION['user_id'];
-
 include 'db_config.php';
 session_start();
 ?>

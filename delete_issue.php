@@ -1,46 +1,40 @@
 <?php
-include 'db_config.php';
 session_start();
+include 'db_config.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
+    die("You must be logged in.");
 }
 
-if (isset($_GET['id'])) {
-    $issue_id = intval($_GET['id']);
-    $user_id = $_SESSION['user_id'];
-
-    // Check ownership
-    $check_sql = "SELECT * FROM issues WHERE id = ? AND user_id = ?";
-    $stmt = $conn->prepare($check_sql);
-    $stmt->bind_param("ii", $issue_id, $user_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows === 1) {
-        $issue = $result->fetch_assoc();
-
-        // Delete associated image (if any)
-        if (!empty($issue['image']) && file_exists("uploads/" . $issue['image'])) {
-            unlink("uploads/" . $issue['image']);
-        }
-
-        // Delete associated comments (optional)
-        $conn->query("DELETE FROM comments WHERE issue_id = $issue_id");
-
-        // Delete the issue
-        $delete_sql = "DELETE FROM issues WHERE id = ?";
-        $stmt = $conn->prepare($delete_sql);
-        $stmt->bind_param("i", $issue_id);
-        $stmt->execute();
-
-        header("Location: combined_issues.php");
-        exit();
-    } else {
-        echo "You are not authorized to delete this issue.";
-    }
-} else {
-    echo "Invalid request.";
+if (!isset($_GET['id'])) {
+    die("Issue ID is missing.");
 }
+
+$issue_id = $_GET['id'];
+$user_id = $_SESSION['user_id'];
+
+// Step 1: Fetch the issue
+$stmt = $conn->prepare("SELECT user_id FROM issues WHERE id = ?");
+$stmt->bind_param("i", $issue_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows === 0) {
+    die("Issue not found.");
+}
+
+$issue = $result->fetch_assoc();
+
+// Step 2: Check if current user is the owner
+if ($issue['user_id'] != $user_id) {
+    die("You are not authorized to delete this issue.");
+}
+
+// Step 3: Proceed with deletion
+$delete = $conn->prepare("DELETE FROM issues WHERE id = ?");
+$delete->bind_param("i", $issue_id);
+$delete->execute();
+
+header("Location: view_issues.php");
+exit;
 ?>

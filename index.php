@@ -2,13 +2,14 @@
 session_start();
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Home - Water Forum</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Water Forum</title>
+  <link rel="stylesheet" href="style.css"> <!-- assuming your CSS file is style.css -->
 </head>
+
 <body>
   <div class="container">
     <h1>Welcome to Water Forum</h1>
